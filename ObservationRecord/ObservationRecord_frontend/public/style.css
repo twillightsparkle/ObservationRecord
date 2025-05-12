@@ -1,0 +1,36 @@
+p{
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+section{
+    background-color: #242424;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 10px 0;
+}
+h1{
+    color: #4a90e2;
+    text-align: center;
+}
+h2{
+    color: #d35400;
+    text-align: center;
+}
+h3{
+    color: #8e44ad;
+    text-align: center;
+}
+div{
+    background-color: #cecece;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 5px 0;
+}
+
+nav a {
+    text-decoration: none;
+    margin-right: 10px;
+  }
+
+button {
+  cursor: pointer;
+}

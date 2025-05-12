@@ -1,0 +1,2 @@
+- Each observation if not in view will only show title, when press dropdown bar it open more details
+- user monitor their observation on a different page

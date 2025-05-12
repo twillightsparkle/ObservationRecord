@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Observation Record</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div id="logo">
+            <img src="logo.jpg" alt="Observation Record Logo" style="width: 100px; height: auto;" />
+        </div>
+        <div id="navbar" style="display: flex; justify-content: space-between; align-items: center; padding: 10px;">
+            <!-- Left side: nav links -->
+            <nav style="display: flex; gap: 10px;">
+                <a href="#" onclick='loadDataRecords();
+                document.getElementById("printCollectionAsPDF-button").style.display = "none";
+                document.getElementById("observation-form-search-container").style.display = "none";
+                document.getElementById("observation-form-addobservation-container").style.display = "none"'>Home</a> |
+                <a href="#" onclick="toggleSearchForm()">Search</a> |
+                <a href="#" onclick="toggleObservationAdd()">Add Observation</a> |
+                <a href="#" onclick='loadMyObservations();
+                document.getElementById("printCollectionAsPDF-button").style.display = "none";
+                document.getElementById("observation-form-search-container").style.display = "none";
+                document.getElementById("observation-form-addobservation-container").style.display = "none"'>Observation by you</a> |
+                <a href="#" onclick="toggleCollections()">View Collection</a>
+            </nav>
+        
+            <!-- Right side: user info -->
+            <div id="user-info" style="display: flex; align-items: center;">
+                <p id="username-display" style="margin: 0 10px 0 0;"></p>
+                <button id="logout-button">Logout</button>
+            </div>
+        </div>
+        <!-- Form to fill out: -->
+        <div id="observation-form-addobservation-container" style="display: none; padding: 10px; border: 1px solid #ccc; margin-top: 20px;">
+            <h3>Add Observation</h3>
+            <form id="observation-form-addobservation">
+            <label>Identifier: <input type="text" id="identifier-add" required></label><br>
+              <label>Right Ascension: <input type="text" id="rightAscension" required></label><br>
+              <label>Declination: <input type="text" id="declination" required></label><br>
+              <label>Description: <textarea id="description" required></textarea></label><br>
+              <label>Payload: <textarea id="payload" ></textarea></label><br>
+              <button type="submit">Submit Observation</button>
+            </form>
+            <div id="form-response-add"></div>
+        </div>
+
+        <div id="observation-form-search-container" style="display: none; padding: 10px; border: 1px solid #ccc; margin-top: 20px;">
+            <h3>Search Observation</h3>
+            <form id="observation-form-search">
+              <label>identifier: <input type="text" id="identifier-search"></label><br>
+              <label>Author: <input type="text" id="Author"></label><br>
+              <label>From: <input type="date" id="from-date"></label><br>
+              <label>To: <input type="date" id="to-date"></label><br>
+              <button type="submit">Search</button>
+              <button type="button" onclick="loadDataRecords(); document.getElementById('form-response-search').innerHTML = ''; document.getElementById('observation-form-search').reset();">Clear search</button>
+            </form>
+            <div id="form-response-search"></div>
+        </div>
+
+        <div id="printCollectionAsPDF-button" style="display: none; padding: 10px; border: 1px solid #ccc; margin-top: 20px;">
+        <button onclick="printCollectionAsPDF()">Print Collection as PDF</button>
+        </div>
+
+
+        <h1 id="the-title">Observation Record</h1>
+    </header>
+    <main>
+        <section id="content" style="color: #ffff;">
+            <p>Welcome to the Observation Record application! This platform allows you to track and manage your observations efficiently.</p>
+        </section>
+
+        <!-- Where records are displayed: -->
+        <section id="observation-details"></section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Observation Record. All rights reserved.</p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="script.js"></script>
+
+    <script>
+        if (localStorage.getItem("isLoggedIn") !== "true") {
+          window.location.href = "index.html";
+        }
+        document.getElementById("username-display").innerText = localStorage.getItem("nickname") || localStorage.getItem("username") || "User";
+        document.getElementById("logout-button").addEventListener("click", function() {
+            localStorage.removeItem("isLoggedIn");
+            localStorage.removeItem("username");
+            window.location.href = "index.html";
+        });
+        document.getElementById("observation-details").innerHTML = "<h2>Observation Details</h2>";
+      </script>
+      
+</body>
+</html>
