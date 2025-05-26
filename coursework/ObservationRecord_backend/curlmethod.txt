@@ -1,0 +1,6 @@
+curl -k -d "@user.json" http://localhost:8001/registration -H 'Content-Type:application/json'
+curl -k -d "@message.json" http://localhost:8001/datarecord -H 'Content-Type:application/json' -u johndoe:password
+curl -k http://localhost:8001/datarecord -H 'Content-Type:application/json' -u johndoe:password 
+
+change the getmessage to sendresponse instead of outputstream
+changed https to http for easier implementation of frontend

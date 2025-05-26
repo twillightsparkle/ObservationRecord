@@ -1,0 +1,7 @@
+com\o3\server\MessageDatabase.class
+com\o3\server\RegistrationHandler.class
+com\o3\server\SearchHandler.class
+com\o3\server\Server.class
+com\o3\server\ObservationRecord.class
+com\o3\server\User.class
+com\o3\server\UserAuthenticator.class

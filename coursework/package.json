@@ -1,0 +1,15 @@
+{
+  "name": "coursework",
+  "version": "1.0.0",
+  "main": "Server_front.js",
+  "scripts": {
+    "start": "node Server_front.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "thang",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}

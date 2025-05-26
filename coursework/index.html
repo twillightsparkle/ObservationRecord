@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link rel="stylesheet" href="/css/login-register.css">
+</head>
+<body>
+  <h1>Login</h1>
+  <nav>
+    <div>
+    <a href="home.html">Home</a>
+  </div>
+  </nav>
+  <form onsubmit="return login(event)">
+    <input type="text" id="username" placeholder="Username" required />
+    <input type="password" id="password" placeholder="Password" required />
+    <button type="submit">Login</button>
+  </form>
+  <p id="error" style="color: red;"></p>
+  <p>Don't have an account? <a href="register.html">Register here</a></p>
+
+  <script src="/scripts/login.js"></script>
+</body>
+</html>
